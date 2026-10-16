@@ -2,7 +2,7 @@
 
 个人主页：[xilinshancun.github.io](https://xilinshancun.github.io/)。
 
-静态 HTML / CSS / JavaScript，由 GitHub Pages 托管，不需要安装依赖。向 `main` 推送后，GitHub Actions 自动发布 `dist/`。
+以工程经历与技术工作为核心的个人主页。英文优先，支持中文切换；没有内容的文章区和项目资源链接不会显示。原生 HTML / CSS / JavaScript，无构建依赖。向 `main` 推送后，GitHub Actions 自动发布 `dist/`。
 
 ## 本地预览
 
@@ -10,44 +10,52 @@
 python3 -m http.server 4173 --directory dist
 ```
 
-访问 http://localhost:4173。
+打开 http://localhost:4173。
 
 ## 内容维护
 
-- `dist/index.html`：个人介绍、经历、教育背景、联系方式与 SEO。
-- `dist/content.js`：Workfx AI 项目和文章数据。
-- `dist/styles.css`：样式与手机适配。
-- `dist/app.js`：主题切换、导航、邮箱复制与文章阅读。
-- `.github/workflows/pages.yml`：自动部署配置。
+- `dist/index.html`：英文正文、身份介绍、工程实践、工作经历和教育背景。关闭 JavaScript 仍可完整阅读。
+- `dist/content.js`：与 `data-i18n` 对应的中文文案，以及项目资源和文章数据。
+- `dist/styles.css`：阅读排版、响应式布局、深浅色样式。
+- `dist/app.js`：语言切换、主题偏好、导航与文章阅读。
+- `.github/workflows/pages.yml`：GitHub Pages 自动部署。
 
-## Workfx AI 待补充
+修改英文段落时，同步修改 `content.js` 中相同键对应的中文文案。
 
-目前根据简历提供架构概述，以品牌文字和架构主题作为视觉占位。项目代码在另一台电脑，尚未导入本仓库。获得代码和可公开素材后补充：
+## Workfx AI 后续补充
 
-1. 产品介绍与用户场景。
-2. 真实界面截图或演示。
-3. 经确认可公开的项目链接；代码公开并非展示项目的前提。
-4. 架构说明与技术复盘。
+目前按本人提供的简历，介绍 Agent 平台及两次架构演进；未读取或导入另一台电脑上的项目代码。后续补充实现细节、架构图、真实截图和技术文章，避免在公开页面展示空白占位。
 
-`content.js` 的 `url` 为空时不会生成可点击项目链接，`pending` 用于显示资料整理状态。
-
-## 添加文章
-
-在 `dist/content.js` 的 `articles` 列表中添加：
+公开链接通过 `workfxResources` 添加，没有链接时不渲染资源区：
 
 ```js
 {
-  slug: 'my-first-note',
-  title: '我的第一篇记录',
-  date: '2026-10-16',
-  category: '系统设计',
-  excerpt: '文章简介。',
-  paragraphs: ['第一段正文。', '第二段正文。']
+  label: { en: 'Technical write-up', zh: '技术文章' },
+  url: 'https://your-real-public-link'
 }
 ```
 
-## 内容来源
+项目代码是否公开取决于后续明确指示；介绍项目不要求把项目源码放进本仓库。
 
-姓名、联系方式和 GitHub 账号由本人提供；个人经历、技术方向与教育背景来自本人提供的简历。原始简历及电话号码不包含在网站和仓库中。头像来自公开 GitHub 主页。
+## 文章
 
-初版曾使用 Sites 私有预览，现已迁移到 GitHub Pages，旧预览不再同步更新。
+`articles` 为空时整个写作区隐藏。添加时使用如下结构，双语字段也可以只填字符串：
+
+```js
+{
+  slug: 'first-note',
+  date: '2026-10-16',
+  title: { en: 'Article title', zh: '文章标题' },
+  excerpt: { en: 'Short introduction.', zh: '简短介绍。' },
+  paragraphs: {
+    en: ['First paragraph.', 'Second paragraph.'],
+    zh: ['第一段正文。', '第二段正文。']
+  }
+}
+```
+
+## 来源与公开范围
+
+个人身份、工作经历、任职日期、工程成果及竞赛记录均依据本人提供的资料。原始简历、电话号码及未提供的项目代码不在本站仓库中。没有虚构论文、演示、仓库链接或当前任职信息。
+
+站点托管于 GitHub Pages。旧 Sites 私有预览不再同步更新。

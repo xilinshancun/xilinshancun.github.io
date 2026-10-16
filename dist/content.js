@@ -1,16 +1,50 @@
-// Workfx AI：依据提供的简历写入概述。拿到代码和公开素材后补充链接，移除 pending。
-// 文章格式：{ slug, title, date, category, excerpt, paragraphs: ['正文'] }
+// Chinese translations for the English source in index.html.
+// Workfx links and articles stay hidden until real public materials are supplied.
 window.siteContent = {
-  projects: [
-    {
-      name: 'Workfx AI',
-      label: '核心架构师 · AI Agent 平台',
-      description: '参与平台从 0 到 1 的建设，推动从 ReAct 聊天应用到 Agent 搭建平台，再到自研 Harness 架构的演进。围绕运行时、状态机、工作流编排与上下文工程，构建面向真实任务的智能体系统。',
-      tags: ['Agent Runtime', 'Workflow Orchestration', 'Context Engineering', 'RAG'],
-      url: null,
-      pending: true,
-      featured: true
-    }
-  ],
-  articles: []
+  "zh": {
+    "about1": "我是一名软件工程师，关注 <strong>AI Agent 系统</strong>与<strong>开发者基础设施</strong>，工作涉及智能体运行时、工作流编排、上下文工程，以及支撑服务可靠运行的基础设施。",
+    "about2": "2022 至 2026 年，我在 <strong>Microsoft WCX</strong> 团队担任 <strong>Software Development Engineer II</strong>，参与基础设施 SDK、跨服务认证链路和集成测试工具的设计与实现。在此期间，我也作为兼职技术项目 <a href=\"#workfx\">Workfx AI</a> 的核心架构师，参与 Agent 平台从 0 到 1 的建设，并主导两次主要架构演进。",
+    "about3": "此前，我在<strong>字节跳动 AI Lab</strong> 实习，负责语音训练平台的后端开发。2022 年，我本科毕业于<strong>北京林业大学</strong>，在校期间担任 ACM 集训队负责人。",
+    "navabout": "关于",
+    "navengineering": "工程实践",
+    "navexperience": "工作经历",
+    "naveducation": "教育与竞赛",
+    "workfx-title": "Workfx AI — Agent 平台与 Harness 架构",
+    "workfx-meta": "核心高级架构师 · 兼职技术项目 · 2023.03 – 2026.06",
+    "workfx-intro": "参与前端、后端、算法服务与部署运维的建设，主要负责 Agent Runtime、工作流编排、工具集成与 RAG Pipeline 的设计和实现。项目经历了两次主要架构演进。",
+    "workfx-transition1": "<strong>从 ReAct 聊天应用到 Agent 搭建平台。</strong> 将原有应用演进为支持 Workflow 与 Prompt 两种构建方式的平台，让 RAG、工具与 Skills、Computer Use、记忆、人工干预和定时触发等能力可以在前端配置。",
+    "workfx-transition2": "<strong>从 Workflow 驱动到自研 Harness 架构。</strong> 将垂类 GEO Agent 重构到自研 Runtime、状态机、Middleware 与上下文管理层之上，落地输入输出护栏、记忆与上下文压缩、卡住后的执行恢复、多 Agent 编排和评估能力。",
+    "ms-title": "Microsoft WCX — 服务基础设施与测试",
+    "ms-meta": "Software Development Engineer II · 2022.06 – 2026.08",
+    "ms-sdk": "<strong>WCX Infra SDK。</strong> 参与设计并实现共享 .NET Middleware 与 Azure SDK Wrapper，封装认证、配置、日志及重试等通用能力，为 <strong>40 多个工程团队、60 多个服务</strong>提供一致的基础设施接入方式。",
+    "ms-auth": "<strong>跨服务认证。</strong> 独立负责 WCX 认证链路的架构设计与维护，处理认证链路兼容性、跨服务调用稳定性和权限校验一致性问题。",
+    "ms-sit": "<strong>SIT 集成测试框架。</strong> 基于拓扑排序与动态规划实现复杂依赖测试的 JSON 配置化，将测试维护成本降低 <strong>90%</strong>。",
+    "microsoftorg": "Microsoft",
+    "microsoftrole": "Software Development Engineer II · WCX",
+    "microsoftdesc": "苏州",
+    "workfxorg": "Workfx AI",
+    "workfxrole": "核心高级架构师 · 兼职技术项目",
+    "workfxdesc": "Agent 平台、运行时与工作流编排",
+    "bytedanceorg": "字节跳动",
+    "bytedancerole": "语音研发工程师实习生 · AI Lab",
+    "bytedancedesc": "负责 Falcon 语音训练平台的 Go/Gin 后端开发，将数据展示模块平均响应时间从 60 秒降至 10 秒。",
+    "university": "北京林业大学",
+    "degree": "本科 · ACM 集训队负责人",
+    "honor1": "<strong>银牌</strong>，2021 ICPC 亚洲区域赛 · 济南（前 5%）。",
+    "honor2": "<strong>铜牌</strong>，2020 ICPC 亚洲区域总决赛。",
+    "honor3": "<strong>区域赛铜牌</strong>，2019–2020 年 · 南昌、长春、南京、秦皇岛。",
+    "honor4": "Codeforces 积分：<strong>2012</strong>。",
+    "skip": "跳到正文",
+    "profile-role": "软件工程师",
+    "profile-focus": "AI Agent 系统<br>开发者基础设施",
+    "profile-affiliation": "曾任职于<br><strong>Microsoft · WCX</strong>",
+    "about": "关于我",
+    "engineering": "工程实践",
+    "experience": "工作经历",
+    "education": "教育与竞赛",
+    "writing": "文章",
+    "source": "网站源码"
+  },
+  "workfxResources": [],
+  "articles": []
 };
