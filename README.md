@@ -1,40 +1,53 @@
-# Xu Kang · 康旭的个人主页
+# Xu Kang · 康旭
 
-无需安装依赖的静态网站。页面内容基于用户提供的姓名、邮箱、GitHub 及公开仓库；个人介绍为可修改的初稿，不包含未经提供的职业、学历或履历。文章列表为空，添加文章后自动替换空状态。婚礼项目配图为原创概念示意，页面已标注，并非实际应用截图。
+个人主页：[xilinshancun.github.io](https://xilinshancun.github.io/)。
+
+静态 HTML / CSS / JavaScript，由 GitHub Pages 托管，不需要安装依赖。向 `main` 推送后，GitHub Actions 自动发布 `dist/`。
 
 ## 本地预览
 
-在当前目录运行 `python3 -m http.server 4173 --directory dist`，然后访问 http://localhost:4173。
+```sh
+python3 -m http.server 4173 --directory dist
+```
 
-## 修改内容
+访问 http://localhost:4173。
 
-- `dist/index.html`：姓名、个人介绍、联系方式、SEO 元信息。
-- `dist/content.js`：项目和文章。Fork 项目明确标记为学习收藏。
-- `dist/styles.css`：主题、排版、手机适配。
-- `dist/assets/avatar.png`：来自用户公开 GitHub 的头像。
+## 内容维护
 
-在 `articles` 中加入如下对象即可显示可阅读的文章：
+- `dist/index.html`：个人介绍、经历、教育背景、联系方式与 SEO。
+- `dist/content.js`：Workfx AI 项目和文章数据。
+- `dist/styles.css`：样式与手机适配。
+- `dist/app.js`：主题切换、导航、邮箱复制与文章阅读。
+- `.github/workflows/pages.yml`：自动部署配置。
+
+## Workfx AI 待补充
+
+目前根据简历提供架构概述，以品牌文字和架构主题作为视觉占位。项目代码在另一台电脑，尚未导入本仓库。获得代码和可公开素材后补充：
+
+1. 产品介绍与用户场景。
+2. 真实界面截图或演示。
+3. 经确认可公开的项目链接；代码公开并非展示项目的前提。
+4. 架构说明与技术复盘。
+
+`content.js` 的 `url` 为空时不会生成可点击项目链接，`pending` 用于显示资料整理状态。
+
+## 添加文章
+
+在 `dist/content.js` 的 `articles` 列表中添加：
 
 ```js
 {
   slug: 'my-first-note',
   title: '我的第一篇记录',
   date: '2026-10-16',
-  category: '随笔',
-  excerpt: '用一句话描述文章。',
+  category: '系统设计',
+  excerpt: '文章简介。',
   paragraphs: ['第一段正文。', '第二段正文。']
 }
 ```
 
-## 托管
-
-Sites 的静态发布目录是 `dist`，站点身份保存在 `.openai/hosting.json`。如需改用 GitHub Pages，可直接将 `dist` 内容作为站点文件发布；当前没有向用户的 GitHub 账号创建或推送仓库。
-
 ## 内容来源
 
-- https://github.com/xilinshancun
-- https://github.com/xilinshancun/wedding-quiz-app
-- https://github.com/xilinshancun/helloflask （Fork，原作者 greyli）
-- https://github.com/xilinshancun/go-gin-example （Fork，原作者 eddycjy）
+姓名、联系方式和 GitHub 账号由本人提供；个人经历、技术方向与教育背景来自本人提供的简历。原始简历及电话号码不包含在网站和仓库中。头像来自公开 GitHub 主页。
 
-布局参考 https://vyokky.github.io/ 的浅色个人主页、青绿配色和分区导航，代码与视觉排版独立实现。
+初版曾使用 Sites 私有预览，现已迁移到 GitHub Pages，旧预览不再同步更新。

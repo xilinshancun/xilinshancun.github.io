@@ -1,35 +1,15 @@
-// 编辑这个文件即可更新项目和文章。全部链接使用真实公开仓库。
-// 新增文章：{ slug, title, date: '2026-10-16', category, excerpt,
-//             paragraphs: ['第一段正文', '第二段正文'] }
+// Workfx AI：依据提供的简历写入概述。拿到代码和公开素材后补充链接，移除 pending。
+// 文章格式：{ slug, title, date, category, excerpt, paragraphs: ['正文'] }
 window.siteContent = {
   projects: [
     {
-      name: '婚礼现场扫码答题系统',
-      repository: 'wedding-quiz-app',
-      kind: 'original',
-      label: '个人项目',
-      description: '让宾客用手机参与婚礼现场互动。扫码答题、公共投屏与奖励管理，连接一场婚礼里的每一份参与。',
-      tags: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL'],
-      url: 'https://github.com/xilinshancun/wedding-quiz-app',
+      name: 'Workfx AI',
+      label: '核心架构师 · AI Agent 平台',
+      description: '参与平台从 0 到 1 的建设，推动从 ReAct 聊天应用到 Agent 搭建平台，再到自研 Harness 架构的演进。围绕运行时、状态机、工作流编排与上下文工程，构建面向真实任务的智能体系统。',
+      tags: ['Agent Runtime', 'Workflow Orchestration', 'Context Engineering', 'RAG'],
+      url: null,
+      pending: true,
       featured: true
-    },
-    {
-      name: 'Flask Web 开发实践',
-      repository: 'helloflask',
-      kind: 'learning',
-      label: '学习收藏 · Fork',
-      description: '《Flask Web 开发实战》配套仓库，收录在我的 GitHub 中。原项目由 greyli 维护。',
-      tags: ['Python', 'Flask'],
-      url: 'https://github.com/xilinshancun/helloflask'
-    },
-    {
-      name: 'Go & Gin 示例',
-      repository: 'go-gin-example',
-      kind: 'learning',
-      label: '学习收藏 · Fork',
-      description: '基于 Gin 的 Web 应用示例，收录在我的 GitHub 中。原项目由 eddycjy 维护。',
-      tags: ['Go', 'Gin'],
-      url: 'https://github.com/xilinshancun/go-gin-example'
     }
   ],
   articles: []

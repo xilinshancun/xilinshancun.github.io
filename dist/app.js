@@ -4,20 +4,17 @@
   const escape = (value) => String(value).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const safeUrl = (value) => { try { const url = new URL(value); return url.protocol === 'https:' ? escape(url.href) : '#projects'; } catch { return '#projects'; } };
   const content = window.siteContent || { projects: [], articles: [] };
-  const visual = `<div class="project-visual" role="img" aria-label="婚礼答题项目的概念示意图，非实际应用截图"><div class="phone"><div class="phone-top"><span>9:41</span><span>● ▰</span></div><div class="phone-heading">A little quiz,<br>a lot of love.</div><div class="phone-subtitle">把祝福，变成一场小小的互动。</div><div class="phone-question">01 / 准备好加入这场快乐了吗？</div><div class="phone-option selected">A. 当然，开始吧！</div><div class="phone-option">B. 已经迫不及待了</div><div class="phone-button">提交答案 →</div></div><div class="reward-note"><span>✳</span><strong>一份小小的惊喜</strong><small>MADE WITH LOVE</small></div><span class="visual-caption">WEDDING QUIZ / 概念示意</span></div>`;
-  function renderProjects(filter = 'all') {
-    $('#project-list').innerHTML = content.projects.filter(p => filter === 'all' || p.kind === filter).map(p => `
+  const visual = `<div class="workfx-visual" role="img" aria-label="Workfx AI 架构主题占位，实际项目展示稍后补充"><div class="workfx-top"><span>AGENT ENGINEERING</span><span>01 /</span></div><div class="workfx-wordmark">workfx<span>ai</span></div><div class="workfx-system"><span>Runtime</span><i aria-hidden="true">→</i><span>Orchestration</span><i aria-hidden="true">→</i><span>Context</span></div><div class="workfx-bottom"><span class="workfx-dot"></span>架构主题 · 项目展示待补充</div></div>`;
+  function renderProjects() {
+    $('#project-list').innerHTML = content.projects.map(p => `
       <article class="project-card ${p.featured ? 'featured' : ''}">
-        <div class="project-card-content"><span class="project-type">${icon(p.kind === 'original' ? 'code' : 'book')}${escape(p.label)}</span>
-        <h3><a href="${safeUrl(p.url)}" target="_blank" rel="noopener noreferrer">${escape(p.name)} ${icon('arrow-up-right')}</a></h3>
-        <p>${escape(p.description)}</p><div class="tags">${p.tags.map(tag => `<span>${escape(tag)}</span>`).join('')}</div></div>
+        <div class="project-card-content"><span class="project-type">${icon('code')}${escape(p.label)}</span>
+        <h3>${p.url ? `<a href="${safeUrl(p.url)}" target="_blank" rel="noopener noreferrer">${escape(p.name)} ${icon('arrow-up-right')}</a>` : escape(p.name)}</h3>
+        <p>${escape(p.description)}</p><div class="tags">${p.tags.map(tag => `<span>${escape(tag)}</span>`).join('')}</div>
+        ${p.pending ? '<p class="project-pending"><span class="status-dot"></span>项目详情、界面与演示稍后补充</p>' : ''}</div>
         ${p.featured ? visual : ''}
       </article>`).join('');
   }
-  document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
-    document.querySelectorAll('[data-filter]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
-    renderProjects(button.dataset.filter);
-  }));
   renderProjects();
 
   const themeButton = $('.theme-button');

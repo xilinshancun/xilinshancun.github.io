@@ -1,5 +1,6 @@
 .DS_Store
 node_modules/
 .sites-local/
+.openai/
 *.tar.gz
 *.log
